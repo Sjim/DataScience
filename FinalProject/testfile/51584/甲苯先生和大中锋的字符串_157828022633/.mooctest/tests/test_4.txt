@@ -1,0 +1,7 @@
+6
+aab 1
+abc 1
+aaaa 2
+abab 2
+ababacc 2
+abab 4
