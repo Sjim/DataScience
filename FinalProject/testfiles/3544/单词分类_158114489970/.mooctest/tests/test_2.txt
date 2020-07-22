@@ -1,4 +1,0 @@
-3
-AABAC
-CBAAA
-AAABC

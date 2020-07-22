@@ -97,7 +97,7 @@ data = json.loads(res)
 for k, v in data.items():
     print("这是k:" + k)
     for i in v['cases']:
-        filename = "../testfiles/" + k + "/" + i['case_zip'][57:-5] + '/.mooctest/'
+        filename = "../testfile/" + k + "/" + i['case_zip'][57:-5] + '/.mooctest/'
         case_id = i['case_id']
         final_score = i['final_score']
         scores = []
@@ -121,19 +121,26 @@ id_list = []
 len_list = []
 score_list = []
 time_list = []
+len_all =[]
+score_all=[]
+time_all =[]
 for i in code_sortedById:
     item = code_sortedById[i]
-    id_list.append(i)
-    len_list_t = []
-    score_list_t = []
-    time_list_t = []
-    for k in item:
-        len_list_t.append(k.clen)
-        score_list_t.append(sum(k.score)/len(k.score))
-        time_list_t.append(k.times)
-    len_list.append(sum(len_list_t) / len(len_list_t))
-    score_list.append(sum(score_list_t) / len(score_list_t))
-    time_list.append(round(sum(time_list_t) / len(time_list_t),5))
+    if item is not None:
+        id_list.append(i)
+        len_list_t = []
+        score_list_t = []
+        time_list_t = []
+        for k in item:
+            len_list_t.append(k.clen)
+            score_list_t.append(sum(k.score)/len(k.score))
+            time_list_t.append(k.times)
+        len_list.append(sum(len_list_t) / len(len_list_t))
+        score_list.append(sum(score_list_t) / len(score_list_t))
+        time_list.append(round(sum(time_list_t) / len(time_list_t),5))
+        len_all.append(len_list_t)
+        score_all.append(score_list_t)
+        time_all.append(time_list_t)
 
 # 把代码信息生成数据
 try:
@@ -145,6 +152,12 @@ try:
         json.dump(score_list, fs)
     with open('time.json', 'w', encoding='utf-8') as fs:
         json.dump(time_list, fs)
+    with open('length_all.json', 'w', encoding='utf-8') as fs:
+        json.dump(len_all, fs)
+    with open('score_all.json', 'w', encoding='utf-8') as fs:
+        json.dump(score_all, fs)
+    with open('time_all.json', 'w', encoding='utf-8') as fs:
+        json.dump(time_all, fs)
 except IOError as e:
     print(e)
 print('保存数据完成!')

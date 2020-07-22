@@ -51,17 +51,17 @@ for k, v in data.items():
 #         a= 'http://mooctest-site.oss-cn-shanghai.aliyuncs.com/target/'+quote(cases["case_zip"][57:])
 #         request.urlretrieve(a,filename)
 
-# 将下载的文件解压
-# outest = "e:\\study\\数据科学基础\\大作业\\testfiles\\"
-# ids = os.listdir(outest)
-# for id in ids:
-#     print(id)
-#     zips = os.listdir(outest+str(id))
-#     for zip in zips:
-#         print(outest+id+"\\"+zip)
-#         print(os.getcwd())
-#         z=zipfile.ZipFile(outest+"\\"+id+"\\"+zip, 'r')
-#         os.makedirs(outest+"\\"+id+"\\"+zip[:-5])
-#         z.extractall(path=outest+"\\"+id+"\\"+zip[:-5])
-#         z.close()
-#         os.remove(outest+"\\"+id+"\\"+zip)
+#将下载的文件解压
+outest = "e:\\study\\DataScience\\DataScience\\FinalProject\\代码\\"
+ids = os.listdir(outest)
+for id in ids:
+    print(id)
+    zips = os.listdir(outest+str(id))
+    for zip in zips:
+        print(outest+id+"\\"+zip)
+        print(os.getcwd())
+        z=zipfile.ZipFile(outest+"\\"+id+"\\"+zip, 'r')
+        os.makedirs(outest+"\\"+id+"\\"+zip[:-5])
+        z.extractall(path=outest+"\\"+id+"\\"+zip[:-5])
+        z.close()
+        os.remove(outest+"\\"+id+"\\"+zip)

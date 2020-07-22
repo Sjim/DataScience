@@ -11,7 +11,7 @@ def copyFile(fileName):
         shutil.copy(source, target)
 
 
-soruce = "../testfiles/"
+soruce = "../代码/"
 fileList = os.listdir(soruce)
 for i in fileList:
     if os.path.isdir(soruce+i):
